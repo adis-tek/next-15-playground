@@ -19,6 +19,12 @@ export default function NavLinks() {
       >
         Test
       </Link>
+      <Link
+        className={`link ${pathname === "/dashboard" ? "active" : ""}`}
+        href="/dashboard"
+      >
+        Dashboard
+      </Link>
     </nav>
   );
 }
