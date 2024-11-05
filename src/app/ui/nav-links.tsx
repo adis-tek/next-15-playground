@@ -3,8 +3,9 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export function NavLinks() {
+export default function NavLinks() {
   const pathname = usePathname();
+  // console.log(pathname); => / or /test or /test/test1/123
 
   return (
     <nav>
@@ -13,10 +14,10 @@ export function NavLinks() {
       </Link>
 
       <Link
-        className={`link ${pathname === "/about" ? "active" : ""}`}
-        href="/about"
+        className={`link ${pathname === "/test" ? "active" : ""}`}
+        href="/test"
       >
-        About
+        Test
       </Link>
     </nav>
   );
