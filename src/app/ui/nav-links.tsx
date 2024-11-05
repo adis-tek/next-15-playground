@@ -25,6 +25,12 @@ export default function NavLinks() {
       >
         Dashboard
       </Link>
+      <Link
+        className={`link ${pathname === "/signup" ? "active" : ""}`}
+        href="/signup"
+      >
+        Sign Up
+      </Link>
     </nav>
   );
 }

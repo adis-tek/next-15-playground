@@ -18,6 +18,9 @@ export default function Dashboard() {
     window.history.replaceState(null, "", newPath);
   }
 
+  // test error page
+  // throw new Error("Test error");
+
   return (
     <div>
       <h1>Dashboard</h1>
