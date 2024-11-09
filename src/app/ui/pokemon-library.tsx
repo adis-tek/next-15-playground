@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 type Pokemon = {
   count: number;
@@ -27,17 +28,19 @@ export default function PokemonLibrary(params: Pokemon) {
       <div>
         {params.results?.map(
           (pokemon: { name: string; url: string }, index) => (
-            <div key={pokemon.name}>
-              <Image
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                  index + 1
-                }.png`}
-                alt={pokemon.name}
-                width={96}
-                height={96}
-              />
-              <p>{pokemon.name}</p>
-            </div>
+            <Link href={`/pokemon/${index + 1}`} key={pokemon.name}>
+              <div key={pokemon.name}>
+                <Image
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                    index + 1
+                  }.png`}
+                  alt={pokemon.name}
+                  width={96}
+                  height={96}
+                />
+                <p>{pokemon.name}</p>
+              </div>
+            </Link>
           )
         )}
       </div>

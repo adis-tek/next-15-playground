@@ -95,7 +95,7 @@ export async function GET(request: NextRequest) {
   };
 
   return NextResponse.json({
-    evolves: evolves(),
+    evolutions: evolves(),
     pokemonData: pokemonObject,
     // request: request,
   });
