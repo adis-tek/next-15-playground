@@ -89,12 +89,14 @@ export async function GET(request: NextRequest) {
   const pokemonObject = {
     name: pokemonData.data.name,
     id: pokemonData.data.id,
-    types: pokemonData.data.types,
+    types: pokemonData.data.types.map(
+      (type: { type: { name: string } }) => type.type.name
+    ),
   };
 
   return NextResponse.json({
     evolves: evolves(),
     pokemonData: pokemonObject,
-    request: request,
+    // request: request,
   });
 }
