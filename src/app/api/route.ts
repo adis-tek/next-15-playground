@@ -1,11 +1,8 @@
-import { NextRequest } from "next/server";
-
 export const dynamic = "force-static";
 
-export async function GET(request: NextRequest) {
-  const pokemonId = request.pokemonId;
+export async function GET() {
   const res = await fetch(
-    `https://pokeapi.co/api/v2/generation/${pokemonId}/`,
+    `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`,
     {
       method: "GET",
       headers: {
