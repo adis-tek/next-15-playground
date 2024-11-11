@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { signOut } from "../actions";
 
 export default function NavLinks() {
   const poke: boolean = true;
@@ -18,13 +19,15 @@ export default function NavLinks() {
           >
             Pokemon
           </Link>
-          |
+          <p>|</p>
           <Link
             className={`link ${pathname === "/test" ? "active" : ""}`}
             href="/favorites"
           >
             Favorites
           </Link>
+          <p>|</p>
+          <button onClick={() => signOut()}>Sign Out</button>
         </nav>
       ) : (
         <nav>
