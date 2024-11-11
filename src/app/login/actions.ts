@@ -46,3 +46,24 @@ export async function signup(formData: FormData) {
   revalidatePath("/", "layout");
   redirect("/");
 }
+
+export async function sendRecoveryEmail(formData: FormData) {
+  const supabase = await createClient();
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const data = {
+    recoveryEmail: formData.get("recoveryEmail") as string,
+  };
+
+  const { error } = await supabase.auth.resetPasswordForEmail(
+    data.recoveryEmail
+  );
+
+  if (error) {
+    redirect("/error");
+  }
+
+  revalidatePath("/private");
+  redirect("/private");
+}
