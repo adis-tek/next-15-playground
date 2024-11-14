@@ -8,10 +8,13 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts"
 console.log("Hello from Functions!")
 
 Deno.serve(async (req) => {
-  const { name } = await req.json()
+  const { record } = await req.json();
+
   const data = {
-    message: `Hello ${name}!`,
+    record,
   }
+
+  console.log({record});
 
   return new Response(
     JSON.stringify(data),
